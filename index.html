@@ -11,65 +11,77 @@
             box-sizing: border-box;
             font-family: Arial, sans-serif;
         }
-        
         body {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
             background: linear-gradient(to right, #0077b6, #0096c7);
-            color: #fff;
+            color: white;
             text-align: center;
             padding: 20px;
         }
-        
         .container {
-            max-width: 600px;
-            background: rgba(255, 255, 255, 0.1);
-            padding: 40px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
             border-radius: 10px;
             backdrop-filter: blur(10px);
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
         }
-        
         h1 {
-            font-size: 36px;
-            font-weight: bold;
+            font-size: 32px;
             margin-bottom: 15px;
         }
-        
         p {
             font-size: 18px;
             margin-bottom: 20px;
-            line-height: 1.5;
         }
-
-        .email {
+        .countdown {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .contact {
             background: rgba(255, 255, 255, 0.2);
             padding: 10px;
             border-radius: 5px;
             display: inline-block;
+            margin-bottom: 20px;
         }
-
-        .contact {
-            font-size: 16px;
-            margin-top: 20px;
+        .contact a {
+            color: #ffdd57;
+            text-decoration: none;
+            font-weight: bold;
         }
-
-        .social-icons {
+        .socials {
+            margin-top: 10px;
+        }
+        .socials a {
+            margin: 0 10px;
+            font-size: 24px;
+            text-decoration: none;
+            color: white;
+        }
+        .input-group {
+            display: flex;
+            justify-content: center;
             margin-top: 15px;
         }
-
-        .social-icons a {
-            margin: 0 10px;
-            text-decoration: none;
-            color: #fff;
-            font-size: 20px;
+        .input-group input {
+            padding: 10px;
+            border: none;
+            border-radius: 5px 0 0 5px;
+            outline: none;
+            width: 250px;
         }
-
-        .countdown {
-            font-size: 24px;
+        .input-group button {
+            padding: 10px;
+            border: none;
+            background: #ffdd57;
+            color: black;
             font-weight: bold;
-            margin-top: 20px;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
         }
     </style>
 </head>
@@ -77,24 +89,65 @@
 
     <div class="container">
         <h1>🚀 VisaMate NZ is Coming Soon! 🇳🇿</h1>
-        <p>Your **ultimate guide to New Zealand immigration, jobs, and living essentials.**</p>
-        
-        <p>We’re working hard behind the scenes to bring you an **easy-to-use app** packed with everything you need to settle in NZ! Stay tuned for updates. 🌏</p>
+        <p>Your <b>ultimate guide</b> to New Zealand immigration, jobs, and living essentials.</p>
+        <p>We’re working hard behind the scenes to bring you an <b>easy-to-use app</b> packed with everything you need to settle in NZ! Stay tuned for updates. 🌏</p>
 
         <div class="countdown" id="countdown">Launching in: 30 days</div>
 
-        <p class="contact">
-            📩 Have any questions? Contact us at:  
-            <span class="email">support@visamatenz.co.nz</span>
-        </p>
+        <div class="contact">
+            📩 Have any questions? Contact us at: 
+            <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
+        </div>
 
-        <div class="social-icons">
-            <a href="https://facebook.com" target="_blank">🔵 Facebook</a>
-            <a href="https://twitter.com" target="_blank">🐦 Twitter</a>
-            <a href="https://linkedin.com" target="_blank">🔗 LinkedIn</a>
+        <div class="socials">
+            <a href="https://twitter.com/visamatenz" target="_blank">🐦 Twitter</a>
             <a href="https://instagram.com/visamatenz" target="_blank">📸 Instagram</a>
         </div>
+
+        <div class="input-group">
+            <input type="email" id="email" placeholder="Enter your email to stay updated">
+            <button onclick="subscribe()">Notify Me</button>
+        </div>
     </div>
+
+    <script>
+        function updateCountdown() {
+            const launchDate = new Date();
+            launchDate.setDate(launchDate.getDate() + 30);
+            
+            function calculateTimeLeft() {
+                const now = new Date();
+                const difference = launchDate - now;
+
+                if (difference <= 0) {
+                    document.getElementById("countdown").innerHTML = "🚀 We are LIVE!";
+                    return;
+                }
+
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
+                const minutes = Math.floor((difference / 1000 / 60) % 60);
+                const seconds = Math.floor((difference / 1000) % 60);
+
+                document.getElementById("countdown").innerHTML = `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+            }
+
+            calculateTimeLeft();
+            setInterval(calculateTimeLeft, 1000);
+        }
+
+        function subscribe() {
+            const email = document.getElementById("email").value;
+            if (email) {
+                alert("Thank you for subscribing! We will notify you.");
+                document.getElementById("email").value = "";
+            } else {
+                alert("Please enter a valid email.");
+            }
+        }
+
+        updateCountdown();
+    </script>
 
 </body>
 </html>
