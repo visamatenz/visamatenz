@@ -3,150 +3,159 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaMate NZ - Coming Soon</title>
+    <title>VisaMate NZ – Coming Soon!</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: Arial, sans-serif;
+            font-family: 'Arial', sans-serif;
         }
+
         body {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(to right, #0077b6, #0096c7);
-            color: white;
-            text-align: center;
-            padding: 20px;
+            background: linear-gradient(120deg, #0077b6, #0096c7);
+            overflow: hidden;
+            animation: animateBG 10s infinite alternate ease-in-out;
         }
+
+        @keyframes animateBG {
+            0% { background-position: left; }
+            100% { background-position: right; }
+        }
+
         .container {
-            background: rgba(255, 255, 255, 0.15);
+            text-align: center;
+            background: rgba(255, 255, 255, 0.9);
             padding: 30px;
-            border-radius: 10px;
-            backdrop-filter: blur(10px);
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            max-width: 500px;
         }
+
         h1 {
-            font-size: 32px;
-            margin-bottom: 15px;
+            font-size: 28px;
+            color: #023e8a;
         }
+
         p {
-            font-size: 18px;
-            margin-bottom: 20px;
+            font-size: 16px;
+            color: #333;
+            margin: 10px 0;
         }
+
         .countdown {
-            font-size: 24px;
+            font-size: 20px;
             font-weight: bold;
-            margin-bottom: 20px;
+            color: #0077b6;
+            margin: 15px 0;
         }
+
         .contact {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px;
-            border-radius: 5px;
-            display: inline-block;
-            margin-bottom: 20px;
+            margin: 15px 0;
         }
+
         .contact a {
-            color: #ffdd57;
             text-decoration: none;
+            color: #0077b6;
             font-weight: bold;
+            padding: 8px 15px;
+            background: #fff;
+            border: 2px solid #0077b6;
+            border-radius: 5px;
+            transition: 0.3s ease-in-out;
         }
-        .socials {
-            margin-top: 10px;
-        }
-        .socials a {
-            margin: 0 10px;
-            font-size: 24px;
-            text-decoration: none;
+
+        .contact a:hover {
+            background: #0077b6;
             color: white;
         }
-        .input-group {
-            display: flex;
-            justify-content: center;
+
+        .socials {
             margin-top: 15px;
         }
-        .input-group input {
-            padding: 10px;
-            border: none;
-            border-radius: 5px 0 0 5px;
-            outline: none;
-            width: 250px;
+
+        .socials a {
+            display: inline-block;
+            margin: 0 10px;
+            font-size: 22px;
+            transition: 0.3s;
         }
-        .input-group button {
-            padding: 10px;
-            border: none;
-            background: #ffdd57;
-            color: black;
-            font-weight: bold;
-            cursor: pointer;
-            border-radius: 0 5px 5px 0;
+
+        .socials a:hover {
+            transform: scale(1.2);
+        }
+
+        /* Social Icon Colors */
+        .socials a.instagram { color: #E1306C; }
+        .socials a.facebook { color: #1877F2; }
+
+        /* Animated Background Elements */
+        .bubble {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: rgba(255, 255, 255, 0.5);
+            border-radius: 50%;
+            animation: float 10s infinite ease-in-out;
+        }
+
+        .bubble:nth-child(1) { top: 20%; left: 10%; animation-duration: 6s; }
+        .bubble:nth-child(2) { top: 30%; right: 10%; animation-duration: 8s; }
+        .bubble:nth-child(3) { bottom: 20%; left: 40%; animation-duration: 5s; }
+        .bubble:nth-child(4) { bottom: 10%; right: 30%; animation-duration: 7s; }
+
+        @keyframes float {
+            0% { transform: translateY(0); opacity: 0.8; }
+            50% { transform: translateY(-30px); opacity: 0.5; }
+            100% { transform: translateY(0); opacity: 0.8; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Floating Animation Background -->
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+
+    <!-- Main Content -->
     <div class="container">
         <h1>🚀 VisaMate NZ is Coming Soon! 🇳🇿</h1>
-        <p>Your <b>ultimate guide</b> to New Zealand immigration, jobs, and living essentials.</p>
-        <p>We’re working hard behind the scenes to bring you an <b>easy-to-use app</b> packed with everything you need to settle in NZ! Stay tuned for updates. 🌏</p>
-
-        <div class="countdown" id="countdown">Launching in: 30 days</div>
+        <p>Your <strong>ultimate guide</strong> to New Zealand immigration, jobs, and living essentials.</p>
+        <p>We're working hard behind the scenes to bring you an <strong>easy-to-use app</strong> packed with everything you need to settle in NZ! Stay tuned for updates. 🌏</p>
+        
+        <div class="countdown">Launching in: <span id="countdown"></span></div>
 
         <div class="contact">
-            📩 Have any questions? Contact us at: 
+            📩 Have any questions? Contact us at:  
             <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
         </div>
 
         <div class="socials">
+            <a href="https://www.instagram.com/visamatenz" class="instagram">📸 Instagram</a>
+            <a href="https://www.facebook.com/visamatenz" class="facebook">📘 Facebook</a>
             <a href="https://twitter.com/visamatenz" target="_blank">🐦 Twitter</a>
-            <a href="https://instagram.com/visamatenz" target="_blank">📸 Instagram</a>
-        </div>
-
-        <div class="input-group">
-            <input type="email" id="email" placeholder="Enter your email to stay updated">
-            <button onclick="subscribe()">Notify Me</button>
         </div>
     </div>
 
     <script>
-        function updateCountdown() {
-            const launchDate = new Date();
-            launchDate.setDate(launchDate.getDate() + 30);
-            
-            function calculateTimeLeft() {
-                const now = new Date();
-                const difference = launchDate - now;
+        // Countdown Timer Script
+        function countdownTimer() {
+            const launchDate = new Date("April 7, 2025 00:00:00").getTime();
+            const now = new Date().getTime();
+            const timeLeft = launchDate - now;
 
-                if (difference <= 0) {
-                    document.getElementById("countdown").innerHTML = "🚀 We are LIVE!";
-                    return;
-                }
-
-                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
-                const minutes = Math.floor((difference / 1000 / 60) % 60);
-                const seconds = Math.floor((difference / 1000) % 60);
-
-                document.getElementById("countdown").innerHTML = `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
-            }
-
-            calculateTimeLeft();
-            setInterval(calculateTimeLeft, 1000);
+            const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+            document.getElementById("countdown").innerText = days + " days";
         }
 
-        function subscribe() {
-            const email = document.getElementById("email").value;
-            if (email) {
-                alert("Thank you for subscribing! We will notify you.");
-                document.getElementById("email").value = "";
-            } else {
-                alert("Please enter a valid email.");
-            }
-        }
-
-        updateCountdown();
+        countdownTimer();
+        setInterval(countdownTimer, 86400000); // Update every 24 hours
     </script>
 
 </body>
