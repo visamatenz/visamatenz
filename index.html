@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisaMate NZ - Coming Soon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
     <style>
         * {
             margin: 0;
@@ -38,7 +40,7 @@
         }
 
         .container {
-            background: rgba(255, 255, 255, 0.9);
+            background: rgba(255, 255, 255, 0.95);
             padding: 30px;
             text-align: center;
             border-radius: 15px;
@@ -92,15 +94,39 @@
             background: #005f87;
         }
 
-        .social-icons a {
-            text-decoration: none;
-            font-size: 16px;
-            margin: 10px;
-            transition: transform 0.3s ease-in-out;
+        /* Social Media Buttons */
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 20px;
         }
 
-        .social-icons a:hover {
-            transform: scale(1.2);
+        .social-btn {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            font-size: 16px;
+            padding: 10px 15px;
+            border-radius: 8px;
+            transition: 0.3s;
+            color: white;
+            width: 120px;
+            justify-content: center;
+        }
+
+        .social-btn i {
+            font-size: 18px;
+        }
+
+        .instagram { background: #E4405F; }
+        .facebook { background: #1877F2; }
+        .twitter { background: #1DA1F2; }
+
+        .social-btn:hover {
+            transform: scale(1.1);
+            opacity: 0.9;
         }
 
         .dark-mode {
@@ -164,9 +190,15 @@
 
         <!-- Social Media Links -->
         <div class="social-icons">
-            <a href="https://www.instagram.com/visamatenz" target="_blank">📷 Instagram</a>
-            <a href="https://www.facebook.com/visamatenz" target="_blank">📘 Facebook</a>
-            <a href="https://twitter.com/visamatenz" target="_blank"> X (Twitter)</a>
+            <a href="https://www.instagram.com/visamatenz" class="social-btn instagram" target="_blank">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+            <a href="https://www.facebook.com/visamatenz" class="social-btn facebook" target="_blank">
+                <i class="fab fa-facebook"></i> Facebook
+            </a>
+            <a href="https://twitter.com/visamatenz" class="social-btn twitter" target="_blank">
+                <i class="fab fa-x-twitter"></i> X (Twitter)
+            </a>
         </div>
     </div>
 
