@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VisaMate NZ – Coming Soon!</title>
+    <title>VisaMate NZ - Coming Soon</title>
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Arial', sans-serif;
+            font-family: Arial, sans-serif;
         }
 
         body {
@@ -17,153 +17,191 @@
             align-items: center;
             justify-content: center;
             height: 100vh;
-            background: linear-gradient(120deg, #0077b6, #0096c7);
+            background: linear-gradient(to right, #0077b6, #0096c7);
+            color: white;
+            transition: background 0.5s ease-in-out;
+            position: relative;
             overflow: hidden;
         }
 
-        .container {
-            text-align: center;
-            background: rgba(255, 255, 255, 0.95);
-            padding: 35px;
-            border-radius: 15px;
-            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-            max-width: 520px;
-            animation: popUp 0.8s ease-in-out;
+        /* Floating background bubbles */
+        .bubble {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: floatUp 10s infinite linear;
         }
 
-        @keyframes popUp {
-            0% { transform: scale(0.8); opacity: 0; }
-            100% { transform: scale(1); opacity: 1; }
+        @keyframes floatUp {
+            0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+            100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            color: black;
+            max-width: 400px;
+            transition: background 0.5s ease-in-out;
         }
 
         h1 {
-            font-size: 28px;
-            color: #023e8a;
-            font-weight: bold;
+            font-size: 24px;
+            margin-bottom: 10px;
         }
 
         p {
-            font-size: 16px;
-            color: #333;
-            margin: 10px 0;
-            line-height: 1.5;
+            font-size: 14px;
+            margin-bottom: 15px;
         }
 
-        .countdown {
-            font-size: 22px;
+        #countdown {
+            font-size: 18px;
             font-weight: bold;
             color: #0077b6;
-            margin: 15px 0;
+            margin-bottom: 15px;
         }
 
         .contact {
-            margin: 15px 0;
-        }
-
-        .contact a {
-            text-decoration: none;
-            color: #fff;
-            font-weight: bold;
-            padding: 8px 15px;
-            background: #0077b6;
-            border-radius: 5px;
-            transition: 0.3s ease-in-out;
-            display: inline-block;
-        }
-
-        .contact a:hover {
-            background: #005f99;
-        }
-
-        .socials {
             margin-top: 15px;
-            display: flex;
-            justify-content: center;
-            gap: 20px;
+            font-size: 14px;
         }
 
-        .socials a {
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: bold;
+        .email-input {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 80%;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            background: #0077b6;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
             transition: 0.3s;
-            display: flex;
-            align-items: center;
         }
 
-        .socials a img {
-            width: 22px;
-            height: 22px;
-            margin-right: 5px;
+        .btn:hover {
+            background: #005f87;
         }
 
-        .socials a:hover {
-            transform: scale(1.1);
+        .social-icons a {
+            text-decoration: none;
+            font-size: 16px;
+            margin: 10px;
+            transition: transform 0.3s ease-in-out;
         }
 
-        /* Floating Animation Background */
-        .bubble {
-            position: absolute;
-            width: 18px;
-            height: 18px;
-            background: rgba(255, 255, 255, 0.4);
-            border-radius: 50%;
-            animation: float 8s infinite alternate ease-in-out;
+        .social-icons a:hover {
+            transform: scale(1.2);
         }
 
-        .bubble:nth-child(1) { top: 15%; left: 10%; animation-duration: 7s; }
-        .bubble:nth-child(2) { top: 25%; right: 10%; animation-duration: 9s; }
-        .bubble:nth-child(3) { bottom: 15%; left: 30%; animation-duration: 6s; }
-        .bubble:nth-child(4) { bottom: 10%; right: 35%; animation-duration: 8s; }
+        .dark-mode {
+            background: #121212;
+            color: white;
+        }
 
-        @keyframes float {
-            0% { transform: translateY(0); opacity: 0.7; }
-            50% { transform: translateY(-20px); opacity: 0.4; }
-            100% { transform: translateY(0); opacity: 0.7; }
+        .dark-mode .container {
+            background: rgba(255, 255, 255, 0.1);
+            color: white;
+        }
+
+        .dark-mode .btn {
+            background: #f5a623;
+        }
+
+        .dark-mode #countdown {
+            color: #f5a623;
+        }
+
+        .toggle-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px;
+            border: none;
+            background: #f5a623;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .toggle-btn:hover {
+            background: #d4891b;
         }
     </style>
 </head>
 <body>
 
-    <!-- Floating Animation Background -->
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
-    <div class="bubble"></div>
+    <!-- Floating background bubbles -->
+    <div class="bubble" style="width: 30px; height: 30px; left: 20%;"></div>
+    <div class="bubble" style="width: 40px; height: 40px; left: 50%; animation-delay: 2s;"></div>
+    <div class="bubble" style="width: 20px; height: 20px; left: 80%; animation-delay: 4s;"></div>
 
-    <!-- Main Content -->
     <div class="container">
         <h1>🚀 VisaMate NZ is Coming Soon! 🇳🇿</h1>
         <p>Your <strong>ultimate guide</strong> to New Zealand immigration, jobs, and living essentials.</p>
-        <p>We're working hard behind the scenes to bring you an <strong>easy-to-use app</strong> packed with everything you need to settle in NZ! Stay tuned for updates. 🌏</p>
+        <p>We're working hard to bring you an <strong>easy-to-use app</strong> packed with everything you need to settle in NZ! 🌏</p>
         
-        <div class="countdown">Launching in: <span id="countdown"></span></div>
+        <p id="countdown">Launching in: 30 days</p>
 
-        <div class="contact">
-            📩 Have any questions? Contact us at:  
+        <!-- Email Subscription Form -->
+        <input type="email" class="email-input" id="email" placeholder="Enter your email">
+        <button class="btn" onclick="subscribe()">Notify Me</button>
+
+        <!-- Contact Info -->
+        <p class="contact">📧 Have any questions? Contact us at:<br>
             <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
-        </div>
+        </p>
 
-        <div class="socials">
-            <a href="https://www.instagram.com/visamatenz"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">Instagram</a>
-            <a href="https://www.facebook.com/visamatenz"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">Facebook</a>
-            <a href="https://twitter.com/visamatenz"><img src="https://cdn-icons-png.flaticon.com/512/733/733579.png" alt="X (Twitter)">X (Twitter)</a>
+        <!-- Social Media Links -->
+        <div class="social-icons">
+            <a href="https://www.instagram.com/visamatenz" target="_blank">📷 Instagram</a>
+            <a href="https://www.facebook.com/visamatenz" target="_blank">📘 Facebook</a>
+            <a href="https://twitter.com/visamatenz" target="_blank"> X (Twitter)</a>
         </div>
     </div>
 
+    <!-- Dark Mode Toggle -->
+    <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+
     <script>
-        // Countdown Timer Script
-        function countdownTimer() {
+        // Countdown Timer Logic
+        function updateCountdown() {
             const launchDate = new Date("April 7, 2025 00:00:00").getTime();
             const now = new Date().getTime();
             const timeLeft = launchDate - now;
 
             const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-            document.getElementById("countdown").innerText = days + " days";
+            const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+
+            document.getElementById("countdown").innerHTML = 
+                `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+
+            setTimeout(updateCountdown, 1000);
         }
 
-        countdownTimer();
-        setInterval(countdownTimer, 86400000); // Update every 24 hours
+        updateCountdown();
+
+        // Dark Mode Toggle
+        function toggleDarkMode() {
+            document.body.classList.toggle("dark-mode");
+        }
+
+        // Subscription Function (for Firebase later)
+        function subscribe() {
+            alert("Thank you! We’ll notify you when we launch.");
+        }
     </script>
 
 </body>
