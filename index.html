@@ -19,36 +19,38 @@
             height: 100vh;
             background: linear-gradient(120deg, #0077b6, #0096c7);
             overflow: hidden;
-            animation: animateBG 10s infinite alternate ease-in-out;
-        }
-
-        @keyframes animateBG {
-            0% { background-position: left; }
-            100% { background-position: right; }
         }
 
         .container {
             text-align: center;
-            background: rgba(255, 255, 255, 0.9);
-            padding: 30px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 35px;
             border-radius: 15px;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
-            max-width: 500px;
+            box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+            max-width: 520px;
+            animation: popUp 0.8s ease-in-out;
+        }
+
+        @keyframes popUp {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         h1 {
             font-size: 28px;
             color: #023e8a;
+            font-weight: bold;
         }
 
         p {
             font-size: 16px;
             color: #333;
             margin: 10px 0;
+            line-height: 1.5;
         }
 
         .countdown {
-            font-size: 20px;
+            font-size: 22px;
             font-weight: bold;
             color: #0077b6;
             margin: 15px 0;
@@ -60,58 +62,64 @@
 
         .contact a {
             text-decoration: none;
-            color: #0077b6;
+            color: #fff;
             font-weight: bold;
             padding: 8px 15px;
-            background: #fff;
-            border: 2px solid #0077b6;
+            background: #0077b6;
             border-radius: 5px;
             transition: 0.3s ease-in-out;
+            display: inline-block;
         }
 
         .contact a:hover {
-            background: #0077b6;
-            color: white;
+            background: #005f99;
         }
 
         .socials {
             margin-top: 15px;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
         }
 
         .socials a {
-            display: inline-block;
-            margin: 0 10px;
-            font-size: 22px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
             transition: 0.3s;
+            display: flex;
+            align-items: center;
+        }
+
+        .socials a img {
+            width: 22px;
+            height: 22px;
+            margin-right: 5px;
         }
 
         .socials a:hover {
-            transform: scale(1.2);
+            transform: scale(1.1);
         }
 
-        /* Social Icon Colors */
-        .socials a.instagram { color: #E1306C; }
-        .socials a.facebook { color: #1877F2; }
-
-        /* Animated Background Elements */
+        /* Floating Animation Background */
         .bubble {
             position: absolute;
-            width: 20px;
-            height: 20px;
-            background: rgba(255, 255, 255, 0.5);
+            width: 18px;
+            height: 18px;
+            background: rgba(255, 255, 255, 0.4);
             border-radius: 50%;
-            animation: float 10s infinite ease-in-out;
+            animation: float 8s infinite alternate ease-in-out;
         }
 
-        .bubble:nth-child(1) { top: 20%; left: 10%; animation-duration: 6s; }
-        .bubble:nth-child(2) { top: 30%; right: 10%; animation-duration: 8s; }
-        .bubble:nth-child(3) { bottom: 20%; left: 40%; animation-duration: 5s; }
-        .bubble:nth-child(4) { bottom: 10%; right: 30%; animation-duration: 7s; }
+        .bubble:nth-child(1) { top: 15%; left: 10%; animation-duration: 7s; }
+        .bubble:nth-child(2) { top: 25%; right: 10%; animation-duration: 9s; }
+        .bubble:nth-child(3) { bottom: 15%; left: 30%; animation-duration: 6s; }
+        .bubble:nth-child(4) { bottom: 10%; right: 35%; animation-duration: 8s; }
 
         @keyframes float {
-            0% { transform: translateY(0); opacity: 0.8; }
-            50% { transform: translateY(-30px); opacity: 0.5; }
-            100% { transform: translateY(0); opacity: 0.8; }
+            0% { transform: translateY(0); opacity: 0.7; }
+            50% { transform: translateY(-20px); opacity: 0.4; }
+            100% { transform: translateY(0); opacity: 0.7; }
         }
     </style>
 </head>
@@ -137,9 +145,8 @@
         </div>
 
         <div class="socials">
-            <a href="https://www.instagram.com/visamatenz" class="instagram">📸 Instagram</a>
-            <a href="https://www.facebook.com/visamatenz" class="facebook">📘 Facebook</a>
-            <a href="https://twitter.com/visamatenz" target="_blank">🐦 Twitter</a>
+            <a href="https://www.instagram.com/visamatenz"><img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram">Instagram</a>
+            <a href="https://www.facebook.com/visamatenz"><img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook">Facebook</a>
         </div>
     </div>
 
