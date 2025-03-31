@@ -2,83 +2,205 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VisaMate NZ - Launching Soon</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisaMate NZ - Coming Soon</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
 
   <style>
-    /* [All your existing CSS remains unchanged] */
-    /* ... Keep your original styles here ... */
-
-    /* Extra section for app features */
-    .features {
-      margin-top: 25px;
-      text-align: left;
-      padding: 0 10px;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
 
-    .features h3 {
-      font-size: 18px;
+    body {
+      font-family: 'Inter', sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0077b6, #00b4d8);
+      color: white;
+      overflow: hidden;
+      transition: 0.3s;
+    }
+
+    .bubble {
+      position: absolute;
+      background: rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
+      animation: floatUp 10s infinite linear;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(100vh) scale(0.5); opacity: 1; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
+    }
+
+    .container {
+      background: rgba(255, 255, 255, 0.96);
+      padding: 30px 25px;
+      border-radius: 15px;
+      max-width: 420px;
+      width: 90%;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+      color: #111;
+      text-align: center;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 700;
       margin-bottom: 10px;
       color: #0077b6;
     }
 
-    .features ul {
-      list-style-type: disc;
-      padding-left: 20px;
-    }
-
-    .features li {
-      margin-bottom: 8px;
+    p {
       font-size: 14px;
-      color: #333;
+      margin-bottom: 10px;
     }
 
-    .dark-mode .features li {
-      color: #ddd;
+    #countdown {
+      font-size: 18px;
+      font-weight: 600;
+      color: #0077b6;
+      margin: 10px 0;
+    }
+
+    .email-input {
+      width: 100%;
+      padding: 10px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    .btn {
+      margin-top: 10px;
+      background: #0077b6;
+      color: white;
+      border: none;
+      padding: 10px 15px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .btn:hover {
+      background: #005f87;
+    }
+
+    .contact {
+      font-size: 14px;
+      margin-top: 20px;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+
+    .social-btn {
+      text-decoration: none;
+      padding: 8px 12px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      color: white;
+    }
+
+    .instagram { background: #E4405F; }
+    .facebook { background: #1877F2; }
+    .twitter { background: #1DA1F2; }
+
+    .social-btn:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+
+    .dark-mode {
+      background: #121212;
+      color: white;
+    }
+
+    .dark-mode .container {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #ffc107;
+      color: black;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-weight: 600;
+    }
+
+    .toggle-btn:hover {
+      background: #e0a800;
+    }
+
+    ul {
+      text-align: left;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
     }
   </style>
 </head>
-<body>
 
+<body>
   <!-- Background bubbles -->
-  <div class="bubble" style="width: 30px; height: 30px; left: 20%;"></div>
+  <div class="bubble" style="width: 30px; height: 30px; left: 15%;"></div>
   <div class="bubble" style="width: 40px; height: 40px; left: 50%; animation-delay: 2s;"></div>
-  <div class="bubble" style="width: 20px; height: 20px; left: 80%; animation-delay: 4s;"></div>
+  <div class="bubble" style="width: 20px; height: 20px; left: 85%; animation-delay: 4s;"></div>
 
   <div class="container">
     <h1>🚀 VisaMate NZ Launches in 2 Weeks! 🇳🇿</h1>
     <p>Your <strong>ultimate migration companion</strong> for settling in New Zealand.</p>
-    <p>The app is almost here! 🚨 Get ready to explore visas, job tools, checklists, migration timelines and more — all in one place. 🧭</p>
+    <p>The app is almost here! 🥳 Get ready to explore visas, job tools, checklists, timelines & more!</p>
 
-    <p id="countdown">Launching in: 14 days</p>
+    <div id="countdown">Launching in: 14 days</div>
 
-    <input type="email" class="email-input" id="email" placeholder="Enter your email"/>
+    <input type="email" class="email-input" placeholder="Enter your email">
     <button class="btn" onclick="subscribe()">Notify Me</button>
 
     <p class="contact">📧 Contact us at: <br>
       <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
     </p>
 
-    <!-- Feature List -->
-    <div class="features">
-      <h3>🌟 What You’ll Find in the App</h3>
-      <ul>
-        <li>🎯 Visa pathways simplified with interactive tools</li>
-        <li>💼 Job listings and guidance for migrants</li>
-        <li>✅ Smart checklists tailored to your visa type</li>
-        <li>📅 Real-time migration timeline & deadlines</li>
-        <li>📲 Quick access to trusted resources and community help</li>
-      </ul>
-    </div>
+    <h3 style="margin-top: 20px;">✨ What You’ll Find in the App</h3>
+    <ul>
+      <li>🧭 Visa pathways simplified with interactive tools</li>
+      <li>💼 Job listings and migrant-friendly career tips</li>
+      <li>✅ Smart checklists based on your visa type</li>
+      <li>📅 Real-time migration timeline & updates</li>
+      <li>🤝 Access to community support and resources</li>
+    </ul>
 
-    <!-- Social Links -->
     <div class="social-icons">
       <a href="https://www.instagram.com/visamatenz" class="social-btn instagram" target="_blank">
         <i class="fab fa-instagram"></i> Instagram
       </a>
       <a href="https://www.facebook.com/visamatenz" class="social-btn facebook" target="_blank">
-        <i class="fab fa-facebook"></i> Facebook
+        <i class="fab fa-facebook-f"></i> Facebook
       </a>
       <a href="https://twitter.com/visamatenz" class="social-btn twitter" target="_blank">
         <i class="fab fa-x-twitter"></i>
@@ -86,22 +208,21 @@
     </div>
   </div>
 
-  <!-- Dark Mode Toggle -->
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
   <script>
     // Countdown Logic
     function updateCountdown() {
-      const launchDate = new Date("April 7, 2025 00:00:00").getTime();
+      const launchDate = new Date("April 14, 2025 00:00:00").getTime();
       const now = new Date().getTime();
-      const timeLeft = launchDate - now;
+      const distance = launchDate - now;
 
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML =
+      document.getElementById("countdown").innerHTML = 
         `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
 
       setTimeout(updateCountdown, 1000);
@@ -109,14 +230,12 @@
 
     updateCountdown();
 
-    // Dark Mode
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
-    // Notify button
     function subscribe() {
-      alert("Thank you! We'll let you know as soon as VisaMate NZ is live.");
+      alert("Thank you! You’ll be notified on launch.");
     }
   </script>
 </body>
