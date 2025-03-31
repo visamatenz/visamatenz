@@ -3,257 +3,240 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VisaMate NZ – Launching Soon</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+  <title>VisaMate NZ - Coming Soon</title>
   <style>
     * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0; padding: 0; box-sizing: border-box;
     }
 
     body {
-      background: linear-gradient(to right, #0077b6, #00b4d8);
-      height: 100vh;
-      overflow: hidden;
+      font-family: Arial, sans-serif;
       display: flex;
-      justify-content: center;
       align-items: center;
-      transition: background 0.5s ease-in-out;
+      justify-content: center;
+      height: 100vh;
+      background: linear-gradient(to right, #0077b6, #0096c7);
+      color: white;
+      overflow: hidden;
       position: relative;
+      transition: background 0.3s ease;
     }
 
     .container {
-      background-color: rgba(255, 255, 255, 0.95);
+      background: rgba(255, 255, 255, 0.96);
       padding: 30px;
-      border-radius: 16px;
-      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
       text-align: center;
-      max-width: 420px;
-      width: 90%;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      color: black;
+      max-width: 400px;
+      z-index: 2;
     }
 
     h1 {
       font-size: 22px;
-      margin-bottom: 12px;
-      color: #023e8a;
+      margin-bottom: 10px;
+      color: #0077b6;
     }
 
     p {
-      font-size: 15px;
+      font-size: 14px;
       margin-bottom: 12px;
     }
 
     #countdown {
+      font-size: 18px;
       font-weight: bold;
       color: #0077b6;
-      margin-bottom: 20px;
+      margin: 10px 0;
     }
 
     .email-input {
       padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
       width: 80%;
       margin-bottom: 10px;
-      border-radius: 6px;
-      border: 1px solid #ccc;
     }
 
     .btn {
       background: #0077b6;
       color: white;
-      padding: 10px 18px;
+      padding: 10px 15px;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
-      font-weight: bold;
-      transition: 0.3s ease;
+      transition: 0.3s;
     }
 
     .btn:hover {
-      background-color: #023e8a;
+      background: #005f87;
     }
 
     .contact {
-      font-size: 14px;
-      margin-top: 15px;
-    }
-
-    .contact a {
-      color: #0077b6;
-      text-decoration: none;
+      font-size: 13px;
+      margin-top: 10px;
     }
 
     .social-icons {
       display: flex;
       justify-content: center;
       gap: 10px;
-      margin-top: 20px;
+      margin-top: 15px;
     }
 
     .social-btn {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 14px;
-      text-decoration: none;
+      background: #0077b6;
       color: white;
       padding: 8px 12px;
-      border-radius: 6px;
-      transition: 0.3s ease;
+      border-radius: 8px;
+      text-decoration: none;
+      font-size: 14px;
+      transition: 0.3s;
     }
-
-    .social-btn i {
-      font-size: 16px;
-    }
-
-    .instagram { background: #E4405F; }
-    .facebook { background: #1877F2; }
-    .twitter { background: #1DA1F2; }
 
     .social-btn:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-
-    .features {
-      margin-top: 20px;
-      text-align: left;
-      font-size: 14px;
-    }
-
-    .features b {
-      display: block;
-      font-size: 16px;
-      margin-bottom: 8px;
-    }
-
-    .dark-mode {
-      background: #121212;
-    }
-
-    .dark-mode .container {
-      background: rgba(255, 255, 255, 0.1);
-      color: white;
-    }
-
-    .dark-mode #countdown {
-      color: #f5a623;
+      background: #023e8a;
     }
 
     .toggle-btn {
       position: fixed;
       bottom: 20px;
       right: 20px;
-      padding: 10px;
-      background: #f5a623;
-      color: white;
+      padding: 10px 15px;
       border: none;
       border-radius: 5px;
+      background: #f5a623;
+      color: white;
       cursor: pointer;
     }
 
-    /* ✈️ Plane Animation */
-    .plane {
-      position: absolute;
-      top: 10%;
-      left: -100px;
-      font-size: 24px;
+    .dark-mode {
+      background: #0a0a0a;
       color: white;
-      opacity: 0.6;
-      animation: flyAcross 20s linear infinite;
     }
 
-    .plane:nth-child(2) {
-      top: 30%;
-      font-size: 30px;
-      animation-delay: 5s;
+    .dark-mode .container {
+      background: rgba(255, 255, 255, 0.08);
+      color: white;
     }
 
-    .plane:nth-child(3) {
-      top: 60%;
-      font-size: 28px;
-      animation-delay: 10s;
+    .dark-mode .btn {
+      background: #f5a623;
     }
 
-    @keyframes flyAcross {
-      0% { left: -100px; transform: translateY(0); }
-      100% { left: 120%; transform: translateY(-20px); }
+    .dark-mode .social-btn {
+      background: #f5a623;
     }
+
+    /* Waving Flag */
+    .flag-container {
+      position: absolute;
+      top: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 120px;
+      height: 80px;
+      z-index: 0;
+    }
+
+    .flag {
+      width: 100%;
+      height: 100%;
+      background: url('nz-flag.png') no-repeat center center;
+      background-size: cover;
+      animation: wave 1.8s infinite ease-in-out;
+      transform-origin: left center;
+    }
+
+    @keyframes wave {
+      0%, 100% { transform: rotateZ(0deg); }
+      25% { transform: rotateZ(1deg); }
+      50% { transform: rotateZ(-1.5deg); }
+      75% { transform: rotateZ(1deg); }
+    }
+
   </style>
 </head>
 <body>
 
-  <!-- ✈️ Animated planes -->
-  <div class="plane">✈️</div>
-  <div class="plane">🛫</div>
-  <div class="plane">🛬</div>
+  <!-- Animated NZ Flag -->
+  <div class="flag-container">
+    <div class="flag"></div>
+  </div>
 
   <div class="container">
     <h1>🚀 VisaMate NZ Launches in 2 Weeks! 🇳🇿</h1>
-    <p><strong>Your <span style="color:#0077b6;">ultimate migration companion</span></strong> for settling in New Zealand.</p>
-    <p>The app is almost here! 📱 Get ready to explore visas, jobs, checklists, timelines & more!</p>
-    <p id="countdown">Launching in...</p>
+    <p>Your <strong>ultimate migration companion</strong> for settling in New Zealand.</p>
+    <p>The app is almost here! 🧳 Explore visas, jobs, timelines, checklists & more — all in one place!</p>
 
-    <input type="email" class="email-input" placeholder="Enter your email" />
-    <br />
+    <div id="countdown">Launching soon...</div>
+
+    <input type="email" id="email" class="email-input" placeholder="Enter your email" />
     <button class="btn" onclick="subscribe()">Notify Me</button>
 
-    <p class="contact">📧 Contact us at: <br/><a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a></p>
+    <p class="contact">📧 Contact us at:<br>
+      <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
+    </p>
 
-    <div class="features">
-      <b>✨ What You’ll Find in the App</b>
-      <ul>
-        <li>🗂️ Visa pathways simplified with interactive tools</li>
-        <li>💼 Job listings and migrant-friendly career tips</li>
-        <li>✅ Smart checklists based on your visa type</li>
-        <li>📆 Real-time migration timeline & updates</li>
-        <li>💬 Access to community support and resources</li>
-      </ul>
-    </div>
+    <hr style="margin: 15px 0;">
+
+    <h3>✨ What You’ll Find in the App</h3>
+    <ul style="text-align: left; font-size: 14px; margin-top: 10px;">
+      <li>🛂 Visa tools, timelines & deadlines</li>
+      <li>💼 Job listings & career advice</li>
+      <li>✅ Smart checklists for your visa type</li>
+      <li>📊 Live migration updates</li>
+      <li>🤝 Community support & verified links</li>
+    </ul>
 
     <div class="social-icons">
-      <a class="social-btn instagram" href="https://www.instagram.com/visamatenz" target="_blank">
-        <i class="fab fa-instagram"></i> Instagram
-      </a>
-      <a class="social-btn facebook" href="https://www.facebook.com/visamatenz" target="_blank">
-        <i class="fab fa-facebook"></i> Facebook
-      </a>
-      <a class="social-btn twitter" href="https://twitter.com/visamatenz" target="_blank">
-        <i class="fab fa-x-twitter"></i>
-      </a>
+      <a href="https://www.instagram.com/visamatenz" class="social-btn" target="_blank">Instagram</a>
+      <a href="https://www.facebook.com/visamatenz" class="social-btn" target="_blank">Facebook</a>
     </div>
   </div>
 
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
   <script>
+    // Countdown Logic
     function updateCountdown() {
       const launchDate = new Date("April 14, 2025 00:00:00").getTime();
       const now = new Date().getTime();
-      const timeLeft = launchDate - now;
+      const diff = launchDate - now;
 
-      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      if (diff <= 0) {
+        document.getElementById("countdown").innerText = "We're live!";
+        return;
+      }
 
-      document.getElementById("countdown").innerHTML =
-        `Launching in: ${days}d ${hours}h ${minutes}m ${seconds}s`;
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const secs = Math.floor((diff % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerText =
+        `Launching in: ${days}d ${hours}h ${mins}m ${secs}s`;
 
       setTimeout(updateCountdown, 1000);
     }
 
     updateCountdown();
 
+    // Dark Mode
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
 
+    // Fake Email Capture
     function subscribe() {
-      alert("Thanks! You'll be notified at launch.");
+      const email = document.getElementById("email").value;
+      if (email.trim()) {
+        alert(`Thanks! We’ll notify you at ${email} 🎉`);
+      } else {
+        alert("Please enter a valid email.");
+      }
     }
   </script>
-
 </body>
 </html>
