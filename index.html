@@ -129,7 +129,6 @@
       background: #f5a623;
     }
 
-    /* Waving Flag */
     .flag-container {
       position: absolute;
       top: 40px;
@@ -155,7 +154,6 @@
       50% { transform: rotateZ(-1.5deg); }
       75% { transform: rotateZ(1deg); }
     }
-
   </style>
 </head>
 <body>
@@ -167,8 +165,8 @@
 
   <div class="container">
     <h1>🚀 VisaMate NZ Launches in 2 Weeks! 🇳🇿</h1>
-    <p>Your <strong>ultimate migration companion</strong> for settling in New Zealand.</p>
-    <p>The app is almost here! 🧳 Explore visas, jobs, timelines, checklists & more — all in one place!</p>
+    <p>Your <strong>no-nonsense guide</strong> to life in New Zealand.</p>
+    <p>VisaMate NZ simplifies the immigration hassle — helping you navigate visas, jobs, housing, and more in one smooth experience.</p>
 
     <div id="countdown">Launching soon...</div>
 
@@ -201,7 +199,7 @@
   <script>
     // Countdown Logic
     function updateCountdown() {
-      const launchDate = new Date("April 14, 2025 00:00:00").getTime();
+      const launchDate = new Date("April 21, 2025 00:00:00").getTime();
       const now = new Date().getTime();
       const diff = launchDate - now;
 
@@ -223,7 +221,7 @@
 
     updateCountdown();
 
-    // Dark Mode
+    // Dark Mode Toggle
     function toggleDarkMode() {
       document.body.classList.toggle("dark-mode");
     }
