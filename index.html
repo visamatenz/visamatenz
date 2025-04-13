@@ -197,9 +197,10 @@
   <button class="toggle-btn" onclick="toggleDarkMode()">🌙 Dark Mode</button>
 
   <script>
-    // Countdown Logic
+    // Countdown Logic (Fixed for 2 weeks from now, UTC+12)
     function updateCountdown() {
-      const launchDate = new Date("April 21, 2025 00:00:00").getTime();
+      // Set to April 21, 2025 at 00:00 NZST (UTC+12)
+      const launchDate = new Date(Date.UTC(2025, 3, 20, 12, 0, 0)); 
       const now = new Date().getTime();
       const diff = launchDate - now;
 
