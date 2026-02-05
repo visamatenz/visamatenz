@@ -2,12 +2,22 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VisaMate NZ — No BS Immigration Companion</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VisaMate NZ — Immigration, Without the Noise</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
 
   <style>
+    :root {
+      --bg: #020617;
+      --panel: #0B1220;
+      --border: rgba(255,255,255,0.12);
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --accent: #60A5FA;
+      --accent-soft: rgba(96,165,250,0.12);
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -15,163 +25,210 @@
     }
 
     body {
-      font-family: 'Inter', sans-serif;
-      background: linear-gradient(180deg, #0B1220 0%, #020617 100%);
-      color: #F8FAFC;
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -20%, #0B1220 0%, var(--bg) 60%);
+      color: var(--text);
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      padding: 28px 16px;
+      padding: 32px 16px;
     }
 
-    .wrap {
-      max-width: 560px;
+    .container {
+      max-width: 720px;
       width: 100%;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.04);
-      border: 1px solid rgba(255, 255, 255, 0.12);
-      border-radius: 20px;
-      padding: 28px;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
-      backdrop-filter: blur(14px);
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 36px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+      backdrop-filter: blur(16px);
     }
 
     .badge {
-      display: inline-block;
-      padding: 6px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
       border-radius: 999px;
-      background: rgba(96,165,250,0.15);
-      color: #93C5FD;
-      font-weight: 700;
+      background: var(--accent-soft);
+      color: var(--accent);
       font-size: 12px;
-      letter-spacing: 0.3px;
-      margin-bottom: 14px;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
     }
 
     h1 {
-      font-size: 32px;
+      font-size: 40px;
       font-weight: 900;
-      line-height: 1.15;
-      margin-bottom: 14px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+      letter-spacing: -0.02em;
     }
 
     h1 span {
-      color: #60A5FA;
+      color: var(--accent);
     }
 
-    .sub {
-      font-size: 15.5px;
-      line-height: 1.6;
-      color: #CBD5E1;
-      margin-bottom: 22px;
+    .lead {
+      font-size: 17px;
+      line-height: 1.65;
+      color: var(--muted);
+      max-width: 620px;
+      margin-bottom: 28px;
     }
 
-    .features {
-      margin: 22px 0;
-      border-top: 1px solid rgba(255,255,255,0.12);
-      padding-top: 18px;
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 28px 0;
     }
 
-    .feature {
-      display: flex;
-      gap: 10px;
-      margin-bottom: 12px;
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .item {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
       font-size: 14.5px;
+      line-height: 1.5;
       color: #E5E7EB;
     }
 
-    .feature span {
-      color: #60A5FA;
-      font-weight: 900;
+    .item strong {
+      display: block;
+      font-weight: 800;
+      color: var(--text);
+      margin-bottom: 6px;
     }
 
     .cta {
-      margin-top: 22px;
+      margin-top: 12px;
       display: flex;
-      flex-direction: column;
       gap: 10px;
+      flex-wrap: wrap;
     }
 
     input {
-      padding: 14px;
-      border-radius: 12px;
-      border: none;
+      flex: 1;
+      min-width: 220px;
+      padding: 14px 16px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
       font-size: 14px;
       outline: none;
     }
 
+    input::placeholder {
+      color: var(--muted);
+    }
+
     button {
-      padding: 14px;
-      border-radius: 12px;
+      padding: 14px 18px;
+      border-radius: 14px;
       border: none;
-      background: #2563EB;
+      background: linear-gradient(180deg, #3B82F6, #2563EB);
       color: white;
       font-weight: 800;
-      font-size: 14.5px;
+      font-size: 14px;
       cursor: pointer;
     }
 
     button:hover {
-      background: #1D4ED8;
+      filter: brightness(1.05);
     }
 
     .footer {
-      margin-top: 22px;
+      margin-top: 26px;
       text-align: center;
       font-size: 13px;
-      color: #94A3B8;
+      color: var(--muted);
     }
 
     .footer a {
-      color: #60A5FA;
+      color: var(--accent);
       text-decoration: none;
       font-weight: 700;
       margin: 0 6px;
     }
 
-    @media (max-width: 420px) {
+    @media (max-width: 640px) {
       h1 {
-        font-size: 28px;
+        font-size: 32px;
+      }
+
+      .grid {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 28px 22px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="wrap">
+  <div class="container">
     <div class="card">
 
-      <div class="badge">BUILT IN NEW ZEALAND 🇳🇿</div>
+      <div class="badge">BUILT FOR MIGRANTS · 🇳🇿 NEW ZEALAND</div>
 
       <h1>
-        Immigration, <span>without the BS.</span>
+        Immigration, <span>without the noise.</span>
       </h1>
 
-      <p class="sub">
-        VisaMate NZ is a practical, no-fluff companion for migrants, students,
-        workers, and families navigating life in New Zealand.
+      <p class="lead">
+        VisaMate NZ is a practical companion for people navigating visas,
+        settlement, and life in New Zealand.
         <br><br>
-        No agents. No spam. Just the information you actually need.
+        No agents. No recycled blogs. No misinformation.
+        Just clear guidance, checklists, and trusted sources — built by someone
+        who’s actually lived the process.
       </p>
 
-      <div class="features">
-        <div class="feature"><span>→</span> Visa pathways, timelines & conditions</div>
-        <div class="feature"><span>→</span> My Journey checklists (offline)</div>
-        <div class="feature"><span>→</span> INZ-linked updates & trusted sources</div>
-        <div class="feature"><span>→</span> Settle-in NZ guides (IRD, banking, housing)</div>
+      <div class="divider"></div>
+
+      <div class="grid">
+        <div class="item">
+          <strong>Visa clarity</strong>
+          Understand pathways, conditions, and timelines without digging through PDFs.
+        </div>
+        <div class="item">
+          <strong>My Journey</strong>
+          Personalised checklists that adapt to where you are — saved offline.
+        </div>
+        <div class="item">
+          <strong>Settle smarter</strong>
+          IRD, banking, housing, healthcare — explained simply, without filler.
+        </div>
+        <div class="item">
+          <strong>Trusted sources</strong>
+          Linked directly to Immigration NZ and official government sites.
+        </div>
       </div>
 
       <div class="cta">
-        <input type="email" placeholder="Get early access (optional)" id="email" />
-        <button onclick="subscribe()">Notify me when it’s ready</button>
+        <input type="email" id="email" placeholder="Get notified when it’s ready (optional)" />
+        <button onclick="subscribe()">Join the early list</button>
       </div>
 
       <div class="footer">
         Follow the build:
         <a href="https://instagram.com/visamatenz" target="_blank">Instagram</a> ·
-        <a href="mailto:support@visamatenz.co.nz">Contact</a>
+        <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
       </div>
 
     </div>
@@ -184,7 +241,7 @@
         alert('No spam. Enter an email only if you want updates.');
         return;
       }
-      alert(`Thanks. We’ll keep it relevant. (${email})`);
+      alert(`You’re on the list. We’ll keep it relevant.\n\n${email}`);
     }
   </script>
 
