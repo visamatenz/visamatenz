@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Our Purpose — VisaMate NZ</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #020617;
+      --panel: #0B1220;
+      --border: rgba(255,255,255,0.12);
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --accent: #60A5FA;
+      --accent-soft: rgba(96,165,250,0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+      background: radial-gradient(1200px 600px at 50% -20%, #0B1220 0%, var(--bg) 60%);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 32px 16px;
+    }
+
+    .container {
+      max-width: 760px;
+      width: 100%;
+    }
+
+    .card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
+      backdrop-filter: blur(16px);
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.4px;
+      margin-bottom: 18px;
+    }
+
+    h1 {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 22px;
+      font-weight: 900;
+      margin-top: 34px;
+      margin-bottom: 10px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.7;
+      color: #E5E7EB;
+      margin-bottom: 16px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .divider {
+      height: 1px;
+      background: var(--border);
+      margin: 30px 0;
+    }
+
+    .principles {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin-top: 20px;
+    }
+
+    .principle {
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      background: rgba(255,255,255,0.03);
+    }
+
+    .principle strong {
+      display: block;
+      font-weight: 900;
+      margin-bottom: 6px;
+    }
+
+    .footer {
+      margin-top: 36px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .footer a {
+      color: var(--accent);
+      font-weight: 800;
+      text-decoration: none;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 640px) {
+      h1 {
+        font-size: 30px;
+      }
+
+      .principles {
+        grid-template-columns: 1fr;
+      }
+
+      .card {
+        padding: 28px 22px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <div class="card">
+
+      <div class="badge">WHY VISAMATE EXISTS</div>
+
+      <h1>Our purpose</h1>
+
+      <p>
+        VisaMate NZ exists for one simple reason:
+        <strong>migration is already hard — the information shouldn’t be.</strong>
+      </p>
+
+      <p class="muted">
+        New Zealand’s immigration system is complex by design. Rules change.
+        Pathways differ. Advice is often fragmented, outdated, or locked behind
+        paywalls.
+      </p>
+
+      <p>
+        Migrants are left navigating PDFs, forums, agents, and guesswork —
+        often while working, studying, or supporting families.
+      </p>
+
+      <div class="divider"></div>
+
+      <h2>What VisaMate is — and isn’t</h2>
+
+      <p>
+        VisaMate NZ is <strong>not</strong> an immigration adviser.
+        It does not replace licensed professionals.
+      </p>
+
+      <p>
+        Instead, it acts as a <strong>companion</strong>:
+        helping people understand where they stand, what comes next,
+        and where to find official, trusted information — without noise.
+      </p>
+
+      <div class="divider"></div>
+
+      <h2>Our principles</h2>
+
+      <div class="principles">
+        <div class="principle">
+          <strong>Clarity over complexity</strong>
+          Plain language beats legal jargon. Always.
+        </div>
+        <div class="principle">
+          <strong>Official sources only</strong>
+          If it doesn’t link back to Immigration NZ or government agencies,
+          it doesn’t belong.
+        </div>
+        <div class="principle">
+          <strong>No fear-based selling</strong>
+          Migration is stressful enough without scare tactics.
+        </div>
+        <div class="principle">
+          <strong>Built from lived experience</strong>
+          Designed by someone who has walked the same path.
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <h2>Who this app is for</h2>
+
+      <p>
+        VisaMate NZ is for students, workers, partners, residents —
+        and anyone trying to build a life in Aotearoa with clarity and dignity.
+      </p>
+
+      <p class="muted">
+        If you want shortcuts, promises, or loopholes — this app isn’t for you.
+        If you want structure, truth, and calm guidance — welcome.
+      </p>
+
+      <div class="footer">
+        <a href="index.html">← Back to home</a> ·
+        <a href="https://instagram.com/visamatenz" target="_blank">Instagram</a> ·
+        <a href="mailto:support@visamatenz.co.nz">Contact</a>
+      </div>
+
+    </div>
+  </div>
+
+</body>
+</html>
