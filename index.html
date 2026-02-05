@@ -3,207 +3,190 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>VisaMate NZ – Coming Soon</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <title>VisaMate NZ — No BS Immigration Companion</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800;900&display=swap" rel="stylesheet">
+
   <style>
     * {
-      margin: 0; padding: 0; box-sizing: border-box;
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
 
     body {
       font-family: 'Inter', sans-serif;
-      background: #f5f9ff;
-      color: #1e1e1e;
+      background: linear-gradient(180deg, #0B1220 0%, #020617 100%);
+      color: #F8FAFC;
+      min-height: 100vh;
       display: flex;
       justify-content: center;
-      align-items: center;
-      height: 100vh;
-      padding: 20px;
-      overflow: hidden;
+      padding: 28px 16px;
     }
 
-    .container {
-      background: white;
-      padding: 40px 30px;
-      max-width: 500px;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      text-align: center;
-      position: relative;
+    .wrap {
+      max-width: 560px;
+      width: 100%;
     }
 
-    .flag {
-      width: 70px;
-      height: 50px;
-      background: url('nz-flag.png') no-repeat center center;
-      background-size: cover;
-      position: absolute;
-      top: -25px;
-      left: 20px;
-      animation: wave 1.8s infinite ease-in-out;
-      transform-origin: left center;
+    .card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: 28px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.45);
+      backdrop-filter: blur(14px);
     }
 
-    @keyframes wave {
-      0%, 100% { transform: rotateZ(0deg); }
-      25% { transform: rotateZ(1.5deg); }
-      50% { transform: rotateZ(-1.5deg); }
-      75% { transform: rotateZ(1.2deg); }
+    .badge {
+      display: inline-block;
+      padding: 6px 12px;
+      border-radius: 999px;
+      background: rgba(96,165,250,0.15);
+      color: #93C5FD;
+      font-weight: 700;
+      font-size: 12px;
+      letter-spacing: 0.3px;
+      margin-bottom: 14px;
     }
 
     h1 {
-      font-size: 24px;
-      color: #0077b6;
-      font-weight: 700;
-      margin-bottom: 10px;
+      font-size: 32px;
+      font-weight: 900;
+      line-height: 1.15;
+      margin-bottom: 14px;
     }
 
-    p {
-      font-size: 15px;
-      margin-bottom: 15px;
-      color: #333;
+    h1 span {
+      color: #60A5FA;
     }
 
-    #countdown {
-      font-size: 18px;
-      font-weight: 600;
-      background: #e6f4ff;
-      color: #0077b6;
-      padding: 10px 15px;
-      border-radius: 8px;
-      display: inline-block;
-      margin-bottom: 20px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
-    }
-
-    .email-input {
-      width: 100%;
-      padding: 12px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      margin-bottom: 10px;
-      font-size: 14px;
-    }
-
-    .btn {
-      width: 100%;
-      padding: 12px;
-      background: #0077b6;
-      color: white;
-      font-weight: 600;
-      border: none;
-      border-radius: 8px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #005f87;
+    .sub {
+      font-size: 15.5px;
+      line-height: 1.6;
+      color: #CBD5E1;
+      margin-bottom: 22px;
     }
 
     .features {
-      text-align: left;
+      margin: 22px 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 18px;
+    }
+
+    .feature {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 12px;
+      font-size: 14.5px;
+      color: #E5E7EB;
+    }
+
+    .feature span {
+      color: #60A5FA;
+      font-weight: 900;
+    }
+
+    .cta {
+      margin-top: 22px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    input {
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
       font-size: 14px;
-      margin-top: 25px;
+      outline: none;
     }
 
-    .features li {
-      margin-bottom: 8px;
-      color: #333;
+    button {
+      padding: 14px;
+      border-radius: 12px;
+      border: none;
+      background: #2563EB;
+      color: white;
+      font-weight: 800;
+      font-size: 14.5px;
+      cursor: pointer;
     }
 
-    .social {
-      margin-top: 20px;
+    button:hover {
+      background: #1D4ED8;
     }
 
-    .social a {
-      margin: 0 8px;
-      text-decoration: none;
-      font-size: 14px;
-      color: #0077b6;
-      font-weight: 600;
-    }
-
-    .contact {
-      margin-top: 18px;
+    .footer {
+      margin-top: 22px;
+      text-align: center;
       font-size: 13px;
-      color: #666;
+      color: #94A3B8;
     }
 
-    @media(max-width: 500px) {
-      .container {
-        padding: 30px 20px;
+    .footer a {
+      color: #60A5FA;
+      text-decoration: none;
+      font-weight: 700;
+      margin: 0 6px;
+    }
+
+    @media (max-width: 420px) {
+      h1 {
+        font-size: 28px;
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
-    <div class="flag"></div>
+  <div class="wrap">
+    <div class="card">
 
-    <h1>VisaMate NZ Launches in 31 Days!</h1>
-    <p><strong>Simplifying your migration journey to New Zealand.</strong></p>
-    <p>No fluff, no stress — just real tools for visas, jobs, and life in Aotearoa.</p>
+      <div class="badge">BUILT IN NEW ZEALAND 🇳🇿</div>
 
-    <div id="countdown">Launching soon...</div>
+      <h1>
+        Immigration, <span>without the BS.</span>
+      </h1>
 
-    <input type="email" id="email" class="email-input" placeholder="Enter your email" />
-    <button class="btn" onclick="subscribe()">Notify Me</button>
+      <p class="sub">
+        VisaMate NZ is a practical, no-fluff companion for migrants, students,
+        workers, and families navigating life in New Zealand.
+        <br><br>
+        No agents. No spam. Just the information you actually need.
+      </p>
 
-    <ul class="features">
-      <li>🛂 Visa timelines & toolkits</li>
-      <li>💼 Job listings & salary info</li>
-      <li>📋 Smart checklists for migrants</li>
-      <li>📊 Real-time updates</li>
-      <li>🤝 Community support & verified links</li>
-    </ul>
+      <div class="features">
+        <div class="feature"><span>→</span> Visa pathways, timelines & conditions</div>
+        <div class="feature"><span>→</span> My Journey checklists (offline)</div>
+        <div class="feature"><span>→</span> INZ-linked updates & trusted sources</div>
+        <div class="feature"><span>→</span> Settle-in NZ guides (IRD, banking, housing)</div>
+      </div>
 
-    <div class="social">
-      <a href="https://instagram.com/visamatenz" target="_blank">Instagram</a> |
-      <a href="https://facebook.com/visamatenz" target="_blank">Facebook</a>
-    </div>
+      <div class="cta">
+        <input type="email" placeholder="Get early access (optional)" id="email" />
+        <button onclick="subscribe()">Notify me when it’s ready</button>
+      </div>
 
-    <div class="contact">
-      Contact: <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
+      <div class="footer">
+        Follow the build:
+        <a href="https://instagram.com/visamatenz" target="_blank">Instagram</a> ·
+        <a href="mailto:support@visamatenz.co.nz">Contact</a>
+      </div>
+
     </div>
   </div>
 
   <script>
-    function updateCountdown() {
-      const now = new Date();
-      const launchDate = new Date(now.getTime() + 31 * 24 * 60 * 60 * 1000); // 31 days from now
-      const target = launchDate.getTime();
-      const interval = setInterval(() => {
-        const current = new Date().getTime();
-        const diff = target - current;
-
-        if (diff <= 0) {
-          document.getElementById("countdown").innerText = "We're live!";
-          clearInterval(interval);
-          return;
-        }
-
-        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const mins = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-        const secs = Math.floor((diff % (1000 * 60)) / 1000);
-
-        document.getElementById("countdown").innerText =
-          `Launching in: ${days}d ${hours}h ${mins}m ${secs}s`;
-      }, 1000);
-    }
-
-    updateCountdown();
-
     function subscribe() {
-      const email = document.getElementById("email").value;
-      if (email.trim()) {
-        alert(`Thanks! We'll notify you at ${email} 🎉`);
-      } else {
-        alert("Please enter a valid email address.`);
+      const email = document.getElementById('email').value.trim();
+      if (!email) {
+        alert('No spam. Enter an email only if you want updates.');
+        return;
       }
+      alert(`Thanks. We’ll keep it relevant. (${email})`);
     }
   </script>
+
 </body>
 </html>
