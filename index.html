@@ -1,262 +1,469 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>VisaMate NZ — Immigration, Without the Noise</title>
+<!doctype html>
+<html lang="en-NZ">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="VisaMate NZ is a migrant support app for New Zealand visa pathways, settlement guidance, official links, and personal journey checklists. iOS and Android apps are coming soon."
+    />
+    <meta property="og:title" content="VisaMate NZ" />
+    <meta
+      property="og:description"
+      content="Your journey to New Zealand, simplified. iOS and Android apps are coming soon."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:image" content="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&amp;fit=crop&amp;w=1600&amp;q=80" />
+    <title>VisaMate NZ | Coming Soon</title>
+    <style>
+:root {
+  color-scheme: light;
+  --ink: #07111f;
+  --muted: #4a5b70;
+  --line: rgba(15, 23, 42, 0.12);
+  --blue: #0788c8;
+  --blue-dark: #075985;
+  --aqua: #7dd3fc;
+  --surface: #ffffff;
+  --surface-soft: #f3f8fc;
+  --shadow: 0 24px 80px rgba(7, 17, 31, 0.16);
+}
 
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    :root {
-      --bg: #020617;
-      --panel: #0B1220;
-      --border: rgba(255,255,255,0.12);
-      --text: #F8FAFC;
-      --muted: #94A3B8;
-      --accent: #60A5FA;
-      --accent-soft: rgba(96,165,250,0.12);
-    }
+html {
+  min-height: 100%;
+  background: #f4f8fc;
+}
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+body {
+  min-height: 100%;
+  margin: 0;
+  color: var(--ink);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  letter-spacing: 0;
+  background:
+    radial-gradient(circle at 14% 38%, rgba(125, 211, 252, 0.26), transparent 30%),
+    linear-gradient(180deg, #f8fbff 0%, #eef6fc 100%);
+}
 
-    body {
-      font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
-      background: radial-gradient(1200px 600px at 50% -20%, #0B1220 0%, var(--bg) 60%);
-      color: var(--text);
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding: 32px 16px;
-    }
+img {
+  display: block;
+  max-width: 100%;
+}
 
-    .container {
-      max-width: 720px;
-      width: 100%;
-    }
+a {
+  color: inherit;
+  text-decoration: none;
+}
 
-    .card {
-      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 36px;
-      box-shadow: 0 40px 80px rgba(0,0,0,0.6);
-      backdrop-filter: blur(16px);
-    }
+.page-shell {
+  width: min(1180px, calc(100% - 32px));
+  margin: 0 auto;
+  padding: 24px 0 42px;
+}
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 6px 14px;
-      border-radius: 999px;
-      background: var(--accent-soft);
-      color: var(--accent);
-      font-size: 12px;
-      font-weight: 700;
-      letter-spacing: 0.4px;
-      margin-bottom: 18px;
-    }
+.hero {
+  position: relative;
+  min-height: min(760px, calc(100vh - 48px));
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.62);
+  border-radius: 28px;
+  background: #07111f;
+  box-shadow: var(--shadow);
+}
 
-    h1 {
-      font-size: 40px;
-      font-weight: 900;
-      line-height: 1.1;
-      margin-bottom: 16px;
-      letter-spacing: -0.02em;
-    }
+.hero-media {
+  position: absolute;
+  inset: 0;
+}
 
-    h1 span {
-      color: var(--accent);
-    }
+.hero-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
 
-    .lead {
-      font-size: 17px;
-      line-height: 1.65;
-      color: var(--muted);
-      max-width: 620px;
-      margin-bottom: 28px;
-    }
+.hero-media::after {
+  position: absolute;
+  inset: 0;
+  content: "";
+  background:
+    linear-gradient(90deg, rgba(4, 12, 24, 0.88) 0%, rgba(4, 12, 24, 0.60) 48%, rgba(4, 12, 24, 0.22) 100%),
+    linear-gradient(180deg, rgba(4, 12, 24, 0.34) 0%, rgba(4, 12, 24, 0.12) 48%, rgba(4, 12, 24, 0.62) 100%);
+}
 
-    .divider {
-      height: 1px;
-      background: var(--border);
-      margin: 28px 0;
-    }
+.topbar {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 24px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      margin-bottom: 28px;
-    }
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 900;
+}
 
-    .item {
-      background: rgba(255,255,255,0.03);
-      border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 16px;
-      font-size: 14.5px;
-      line-height: 1.5;
-      color: #E5E7EB;
-    }
+.brand-mark {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  box-shadow: 0 12px 30px rgba(2, 132, 199, 0.26);
+}
 
-    .item strong {
-      display: block;
-      font-weight: 800;
-      color: var(--text);
-      margin-bottom: 6px;
-    }
+.contact-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0 18px;
+  border: 1px solid rgba(255, 255, 255, 0.26);
+  border-radius: 999px;
+  color: #eaf7ff;
+  font-size: 14px;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.09);
+  backdrop-filter: blur(18px);
+}
 
-    .cta {
-      margin-top: 12px;
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-    }
+.hero-content {
+  position: relative;
+  z-index: 2;
+  width: min(680px, 100%);
+  padding: clamp(68px, 12vh, 132px) 24px 48px;
+}
 
-    input {
-      flex: 1;
-      min-width: 220px;
-      padding: 14px 16px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.04);
-      color: var(--text);
-      font-size: 14px;
-      outline: none;
-    }
+.eyebrow {
+  width: fit-content;
+  margin: 0 0 16px;
+  padding: 8px 12px;
+  border: 1px solid rgba(125, 211, 252, 0.32);
+  border-radius: 999px;
+  color: #d8f2ff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1;
+  background: rgba(2, 132, 199, 0.18);
+}
 
-    input::placeholder {
-      color: var(--muted);
-    }
+.eyebrow.dark {
+  color: var(--blue-dark);
+  background: rgba(2, 132, 199, 0.08);
+}
 
-    button {
-      padding: 14px 18px;
-      border-radius: 14px;
-      border: none;
-      background: linear-gradient(180deg, #3B82F6, #2563EB);
-      color: white;
-      font-weight: 800;
-      font-size: 14px;
-      cursor: pointer;
-    }
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
 
-    button:hover {
-      filter: brightness(1.05);
-    }
+h1 {
+  max-width: 650px;
+  margin-bottom: 22px;
+  color: #fff;
+  font-size: clamp(44px, 8vw, 78px);
+  font-weight: 950;
+  line-height: 0.95;
+}
 
-    .footer {
-      margin-top: 26px;
-      text-align: center;
-      font-size: 13px;
-      color: var(--muted);
-    }
+.intro {
+  max-width: 610px;
+  margin-bottom: 30px;
+  color: rgba(239, 248, 255, 0.90);
+  font-size: clamp(17px, 2.2vw, 21px);
+  font-weight: 650;
+  line-height: 1.55;
+}
 
-    .footer a {
-      color: var(--accent);
-      text-decoration: none;
-      font-weight: 700;
-      margin: 0 6px;
-    }
+.store-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
 
-    @media (max-width: 640px) {
-      h1 {
-        font-size: 32px;
-      }
+.store-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 190px;
+  padding: 13px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 18px;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.11);
+  backdrop-filter: blur(22px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.18);
+}
 
-      .grid {
-        grid-template-columns: 1fr;
-      }
+.store-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border-radius: 13px;
+  color: #06263a;
+  font-size: 13px;
+  font-weight: 950;
+  background: linear-gradient(135deg, #eaf7ff, #7dd3fc);
+}
 
-      .card {
-        padding: 28px 22px;
-      }
-    }
-  </style>
-</head>
-<body>
-  <div class="container">
-    <div class="card">
+.store-icon.android {
+  color: #05322b;
+  background: linear-gradient(135deg, #dcfce7, #67e8f9);
+}
 
-      <div class="badge">BUILT FOR MIGRANTS · 🇳🇿 NEW ZEALAND</div>
+.store-badge strong,
+.store-badge small {
+  display: block;
+}
 
-      <h1>
-        Immigration, <span>without the noise.</span>
-      </h1>
+.store-badge strong {
+  font-size: 15px;
+  font-weight: 900;
+}
 
-      <p class="lead">
-        VisaMate NZ is a practical companion for people navigating visas,
-        settlement, and life in New Zealand.
-        <br><br>
-        No agents. No recycled blogs. No misinformation.
-        Just clear guidance, checklists, and trusted sources — built by someone
-        who’s actually lived the process.
-      </p>
+.store-badge small {
+  margin-top: 2px;
+  color: rgba(239, 248, 255, 0.76);
+  font-size: 13px;
+  font-weight: 750;
+}
 
-      <div class="divider"></div>
+.content-band {
+  margin-top: 22px;
+  padding: clamp(26px, 5vw, 44px);
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  background: rgba(255, 255, 255, 0.78);
+  box-shadow: 0 18px 46px rgba(7, 17, 31, 0.08);
+  backdrop-filter: blur(18px);
+}
 
-      <div class="grid">
-        <div class="item">
-          <strong>Visa clarity</strong>
-          Understand pathways, conditions, and timelines without digging through PDFs.
+.section-heading {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 24px;
+}
+
+.section-heading h2 {
+  max-width: 720px;
+  margin-bottom: 0;
+  font-size: clamp(30px, 4vw, 46px);
+  font-weight: 950;
+  line-height: 1.04;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.feature-grid article {
+  min-height: 250px;
+  padding: 22px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: linear-gradient(180deg, #ffffff, #f4f9fd);
+}
+
+.feature-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  margin-bottom: 38px;
+  border-radius: 14px;
+  color: var(--blue-dark);
+  font-size: 13px;
+  font-weight: 950;
+  background: rgba(2, 132, 199, 0.10);
+}
+
+.feature-grid h3 {
+  margin-bottom: 8px;
+  font-size: 21px;
+  font-weight: 950;
+}
+
+.feature-grid p {
+  margin-bottom: 0;
+  color: var(--muted);
+  font-size: 15px;
+  font-weight: 650;
+  line-height: 1.55;
+}
+
+.notice {
+  margin-top: 18px;
+  padding: 16px 18px;
+  border: 1px solid rgba(7, 89, 133, 0.16);
+  border-radius: 18px;
+  color: var(--muted);
+  font-size: 14px;
+  font-weight: 650;
+  line-height: 1.5;
+  background: rgba(2, 132, 199, 0.07);
+}
+
+.notice strong {
+  color: var(--ink);
+  font-weight: 950;
+}
+
+@media (max-width: 820px) {
+  .page-shell {
+    width: min(100% - 20px, 680px);
+    padding-top: 10px;
+  }
+
+  .hero {
+    min-height: 760px;
+    border-radius: 22px;
+  }
+
+  .hero-media::after {
+    background:
+      linear-gradient(180deg, rgba(4, 12, 24, 0.72) 0%, rgba(4, 12, 24, 0.46) 42%, rgba(4, 12, 24, 0.72) 100%);
+  }
+
+  .topbar {
+    padding: 18px;
+  }
+
+  .hero-content {
+    padding: 92px 18px 34px;
+  }
+
+  .feature-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .feature-grid article {
+    min-height: auto;
+  }
+
+  .feature-icon {
+    margin-bottom: 28px;
+  }
+}
+
+@media (max-width: 520px) {
+  .contact-link {
+    display: none;
+  }
+
+  .brand {
+    font-size: 17px;
+  }
+
+  .store-badge {
+    width: 100%;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-media" aria-hidden="true">
+          <img src="https://images.unsplash.com/photo-1507699622108-4be3abd695ad?auto=format&amp;fit=crop&amp;w=1800&amp;q=80" alt="" />
         </div>
 
-        <div class="item">
-          <strong>My Journey</strong>
-          Personalised checklists that adapt to where you are — saved offline.
+        <nav class="topbar" aria-label="Primary">
+          <a class="brand" href="/">
+            <span class="brand-mark" aria-hidden="true">V</span>
+            <span>VisaMate NZ</span>
+          </a>
+          <a class="contact-link" href="mailto:info@visamatenz.co.nz">
+            Contact
+          </a>
+        </nav>
+
+        <div class="hero-content">
+          <p class="eyebrow">New Zealand migrant support app</p>
+          <h1 id="hero-title">Your journey to New Zealand, simplified.</h1>
+          <p class="intro">
+            VisaMate NZ helps migrants, students, workers, and families explore
+            visa pathways, plan settlement steps, follow official resources, and
+            keep a personal My Journey checklist in one calm, practical app.
+          </p>
+
+          <div class="store-row" aria-label="App availability">
+            <span class="store-badge">
+              <span class="store-icon" aria-hidden="true">iOS</span>
+              <span>
+                <strong>iPhone app</strong>
+                <small>Coming soon</small>
+              </span>
+            </span>
+            <span class="store-badge">
+              <span class="store-icon android" aria-hidden="true">A</span>
+              <span>
+                <strong>Android app</strong>
+                <small>Coming soon</small>
+              </span>
+            </span>
+          </div>
+        </div>
+      </section>
+
+      <section class="content-band" aria-label="What VisaMate NZ includes">
+        <div class="section-heading">
+          <p class="eyebrow dark">Built for clarity</p>
+          <h2>Practical support for the move ahead.</h2>
         </div>
 
-        <div class="item">
-          <strong>Settle smarter</strong>
-          IRD, banking, housing, healthcare — explained simply, without filler.
+        <div class="feature-grid">
+          <article>
+            <span class="feature-icon">01</span>
+            <h3>Visa pathways</h3>
+            <p>
+              Compare common New Zealand visa categories and jump to official
+              Immigration New Zealand sources when you need to verify details.
+            </p>
+          </article>
+
+          <article>
+            <span class="feature-icon">02</span>
+            <h3>Settlement basics</h3>
+            <p>
+              Keep everyday essentials close: housing, IRD, banking, healthcare,
+              employment, and trusted links for the first weeks in New Zealand.
+            </p>
+          </article>
+
+          <article>
+            <span class="feature-icon">03</span>
+            <h3>My Journey checklist</h3>
+            <p>
+              Track personal progress locally on your device so important steps
+              do not disappear into notes, screenshots, or browser tabs.
+            </p>
+          </article>
         </div>
 
-        <div class="item">
-          <strong>Trusted sources</strong>
-          Linked directly to Immigration NZ and official government sites.
+        <div class="notice">
+          <strong>Independent information app.</strong>
+          VisaMate NZ is not affiliated with Immigration New Zealand and does
+          not provide immigration advice.
         </div>
-      </div>
-
-      <div class="divider"></div>
-
-      <div class="cta">
-        <input
-          type="email"
-          id="email"
-          placeholder="Get notified when it’s ready (optional)"
-        />
-        <button onclick="subscribe()">Join the early list</button>
-      </div>
-
-      <footer class="footer">
-        <div class="footer-main">
-          Follow the build:
-          <a href="https://instagram.com/visamatenz" target="_blank">Instagram</a> ·
-          <a href="mailto:support@visamatenz.co.nz">support@visamatenz.co.nz</a>
-        </div>
-
-        <div class="footer-links">
-          <a href="purpose.html">Our Purpose</a>
-        </div>
-      </footer>
-
-    </div>
-  </div>
-
-  <script>
-    function subscribe() {
-      const email = document.getElementById('email').value.trim();
-      if (!email) {
-        alert('No spam. Enter an email only if you want updates.');
-        return;
-      }
-      alert(`You’re on the list. We’ll keep it relevant.\n\n${email}`);
-    }
-  </script>
-</body>
+      </section>
+    </main>
+  </body>
 </html>
